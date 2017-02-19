@@ -20,5 +20,7 @@
 
     <cache alias="org.cardiacatlas.xpacs.domain.User.persistentTokens" uses-template="simple"/>
 
+    <cache alias="org.cardiacatlas.xpacs.domain.PatientInfo" uses-template="simple"/>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </config>
