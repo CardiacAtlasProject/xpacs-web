@@ -1,0 +1,84 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myAuxFileLabel">Create or edit a Aux File</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.auxFile.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.auxFile.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="xpacswebApp.auxFile.creation_date" for="field_creation_date">Creation Date</label>
+                <div class="input-group">
+                    <input id="field_creation_date" type="text" class="form-control" name="creation_date" uib-datepicker-popup="{{dateformat}}" ng-model="vm.auxFile.creation_date" is-open="vm.datePickerOpenStatus.creation_date"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('creation_date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.creation_date.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.creation_date.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_filename">Filename</label>
+            <input type="text" class="form-control" name="filename" id="field_filename"
+                    ng-model="vm.auxFile.filename"
+                    required/>
+            <div ng-show="editForm.filename.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.filename.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_uri">Uri</label>
+            <input type="text" class="form-control" name="uri" id="field_uri"
+                    ng-model="vm.auxFile.uri"
+                    required/>
+            <div ng-show="editForm.uri.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.uri.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.auxFile.description"
+                    />
+        </div>
+
+        <div class="form-group">
+            <label for="field_patientInfoFK">Patient Info FK</label>
+            <select class="form-control" id="field_patientInfoFK" name="patientInfoFK" ng-model="vm.auxFile.patientInfoFK" ng-options="patientInfo as patientInfo.patient_id for patientInfo in vm.patientinfos track by patientInfo.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.patientInfoFK.$invalid">
+            <p class="help-block"
+                ng-show="editForm.patientInfoFK.$error.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

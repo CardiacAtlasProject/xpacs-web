@@ -26,5 +26,7 @@
 
     <cache alias="org.cardiacatlas.xpacs.domain.CapModel" uses-template="simple"/>
 
+    <cache alias="org.cardiacatlas.xpacs.domain.AuxFile" uses-template="simple"/>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </config>
