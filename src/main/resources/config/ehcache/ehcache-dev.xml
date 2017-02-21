@@ -24,5 +24,7 @@
 
     <cache alias="org.cardiacatlas.xpacs.domain.ClinicalNote" uses-template="simple"/>
 
+    <cache alias="org.cardiacatlas.xpacs.domain.CapModel" uses-template="simple"/>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </config>
