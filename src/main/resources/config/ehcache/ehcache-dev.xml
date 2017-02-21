@@ -28,5 +28,7 @@
 
     <cache alias="org.cardiacatlas.xpacs.domain.AuxFile" uses-template="simple"/>
 
+    <cache alias="org.cardiacatlas.xpacs.domain.BaselineDiagnosis" uses-template="simple"/>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </config>
